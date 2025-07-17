@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול תקציב</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <h2>מערכת תקציב</h2>
+            <p>הכנס סיסמה</p>
+            <input type="password" id="passwordInput" placeholder="סיסמה">
+            <button id="loginBtn" class="btn">כניסה</button>
+        </div>
+    </div>
+
+    <div id="mainApp" class="hidden">
+        <div class="container">
+            <div class="header">
+                <button id="logoutBtn" class="logout-btn">יציאה</button>
+                <h1>מערכת ניהול תקציב</h1>
+                <p>נהל הכנסות והוצאות</p>
+            </div>
+
+            <div class="summary-cards">
+                <div class="card income">
+                    <h3>הכנסות</h3>
+                    <div id="totalIncome" class="amount">0</div>
+                </div>
+                <div class="card expense">
+                    <h3>הוצאות</h3>
+                    <div id="totalExpenses" class="amount">0</div>
+                </div>
+                <div class="card balance" id="balanceCard">
+                    <h3>יתרה</h3>
+                    <div id="balance" class="amount">0</div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-card">
+                    <h3>הוסף הכנסה</h3>
+                    <div class="form-group">
+                        <input type="text" id="incomeDescription" placeholder="תיאור">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="incomeAmount" placeholder="סכום">
+                    </div>
+                    <button id="addIncomeBtn" class="btn btn-income">הוסף</button>
+                    <div class="items-list" id="incomeList"></div>
+                </div>
+
+                <div class="input-card">
+                    <h3>הוסף הוצאה</h3>
+                    <div class="form-group">
+                        <input type="text" id="expenseDescription" placeholder="תיאור">
+                    </div>
+                    <div class="form-group">
+                        <select id="expenseCategory">
+                            <option value="חיוני">חיוני</option>
+                            <option value="חשוב">חשוב</option>
+                            <option value="רצוי">רצוי</option>
+                            <option value="בזבוז">בזבוז</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="expenseAmount" placeholder="סכום">
+                    </div>
+                    <button id="addExpenseBtn" class="btn btn-expense">הוסף</button>
+                    <div class="items-list" id="expenseList"></div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-card">
+                    <h3>השוואה</h3>
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>קטגוריות</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
